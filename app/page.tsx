@@ -1,30 +1,90 @@
 const services = [
-  { name: "Favicon Setup", price: "$10", category: "Brand Assets", description: "A clean favicon for your website and browser tabs." },
-  { name: "Email Signature Setup", price: "$12", category: "Brand Assets", description: "A polished HTML signature for business email." },
-  { name: "Brand Color Palette", price: "$15", category: "Brand Assets", description: "A simple color direction for your brand." },
-  { name: "Business Card Design", price: "$15", category: "Brand Assets", description: "A minimal, professional business card layout." },
-  { name: "Contact Form Setup", price: "$35", category: "Website Setup", description: "A working contact form configured for your site." },
-  { name: "Policy Page Setup", price: "$39", category: "Website Setup", description: "Terms, privacy, and refund page formatting support." },
-  { name: "Homepage Copy Cleanup", price: "$49", category: "Website Setup", description: "Rewrite and polish your homepage copy." },
-  { name: "Simple Landing Page", price: "$79", category: "Website Setup", description: "A focused landing page for one service or offer." },
-  { name: "Brand Kit Mini", price: "$99", category: "Brand Kit", description: "Colors, typography, and visual basics." },
-  { name: "Starter Website", price: "$149", category: "Website Setup", description: "A clean one-page website for a small business." }
+  {
+    name: "Favicon Setup",
+    price: "$10",
+    category: "Brand Assets",
+    type: "Digital file",
+    description: "A clean favicon delivered as PNG/ICO for your website and browser tabs."
+  },
+  {
+    name: "Email Signature Setup",
+    price: "$12",
+    category: "Brand Assets",
+    type: "1-on-1 + digital file",
+    description: "A polished HTML email signature configured and tested for your business email."
+  },
+  {
+    name: "Brand Color Palette",
+    price: "$15",
+    category: "Brand Assets",
+    type: "Digital file",
+    description: "A simple color direction with hex codes and usage guide for your brand."
+  },
+  {
+    name: "Business Card Design",
+    price: "$15",
+    category: "Brand Assets",
+    type: "Digital file",
+    description: "A minimal, professional business card layout delivered as a print-ready file."
+  },
+  {
+    name: "Contact Form Setup",
+    price: "$35",
+    category: "Website Setup",
+    type: "1-on-1 service",
+    description: "A working contact form installed and configured on your website."
+  },
+  {
+    name: "Policy Page Setup",
+    price: "$39",
+    category: "Website Setup",
+    type: "1-on-1 service",
+    description: "Terms, privacy, and refund page formatting and publishing support for your site."
+  },
+  {
+    name: "Homepage Copy Cleanup",
+    price: "$49",
+    category: "Website Setup",
+    type: "1-on-1 service",
+    description: "Rewrite and polish your homepage copy for clarity and conversion."
+  },
+  {
+    name: "Simple Landing Page",
+    price: "$79",
+    category: "Website Setup",
+    type: "1-on-1 service",
+    description: "A focused landing page for one service, offer, or campaign."
+  },
+  {
+    name: "Brand Kit Mini",
+    price: "$99",
+    category: "Brand Kit",
+    type: "Digital download",
+    description: "Colors, typography direction, and visual basics in a downloadable brand guide."
+  },
+  {
+    name: "Starter Website",
+    price: "$149",
+    category: "Website Setup",
+    type: "1-on-1 service",
+    description: "A clean one-page website built for a small business."
+  }
 ];
 
 const categories = ["Brand Assets", "Website Setup", "Brand Kit"];
 
 const trustItems = [
-  "Secure checkout powered by Stripe",
   "Clear pricing before purchase",
   "Business information displayed",
   "SSL encrypted site",
   "Fixed-scope deliverables",
-  "Refund policy available"
+  "Refund policy available",
+  "Secure card checkout"
 ];
 
 const steps = [
   "Choose a fixed-price service.",
-  "Complete secure checkout with Stripe.",
+  "Complete checkout and agree to terms.",
   "Share your business details.",
   "We deliver your order on time."
 ];
@@ -32,11 +92,15 @@ const steps = [
 const faqs = [
   {
     q: "What does AWGenesis do?",
-    a: "We provide fixed-price website and brand setup services for small businesses, including landing pages, brand assets, and website components."
+    a: "We provide fixed-price website and brand setup services for small businesses, including landing pages, brand assets, contact forms, and policy pages."
+  },
+  {
+    q: "What types of products do you offer?",
+    a: "We offer three types: 1-on-1 services where we work directly with you, digital files sent after purchase, and downloadable brand kits."
   },
   {
     q: "How fast is delivery?",
-    a: "Most small digital deliverables are completed within a few business days, depending on the service."
+    a: "Most small digital deliverables are completed within 3–7 business days. 1-on-1 services depend on how quickly you provide your business details."
   },
   {
     q: "Do you offer custom quotes?",
@@ -44,7 +108,11 @@ const faqs = [
   },
   {
     q: "Is checkout secure?",
-    a: "Yes. Payments are processed through Stripe."
+    a: "Yes. Payments are processed through a secure card checkout provider."
+  },
+  {
+    q: "What happens after I purchase?",
+    a: "You will receive an order confirmation and instructions to share your business details. We then deliver the service or file according to the product description."
   }
 ];
 
@@ -69,7 +137,7 @@ export default function Home() {
         <h1>Get your small business online with fixed-price website and brand setup.</h1>
         <p className="subcopy">
           AWGenesis builds the basic digital presence your business needs: landing pages, brand assets, contact forms,
-          policy pages, and more. Clear pricing, secure Stripe checkout, and fast delivery.
+          policy pages, and more. Clear pricing, fast checkout, and reliable delivery.
         </p>
         <div className="ctaRow">
           <a className="button primary" href="#services">Browse Services</a>
@@ -98,7 +166,10 @@ export default function Home() {
                 .map((service) => (
                   <article className="serviceCard" key={service.name}>
                     <div className="serviceHeader">
-                      <h3>{service.name}</h3>
+                      <div>
+                        <h3>{service.name}</h3>
+                        <span className="serviceType">{service.type}</span>
+                      </div>
                       <span className="price">{service.price}</span>
                     </div>
                     <p>{service.description}</p>
@@ -109,7 +180,7 @@ export default function Home() {
                       </label>
                     </div>
                     <button className="button primary full" type="button">
-                      Pay {service.price} with Stripe
+                      Order now — {service.price}
                     </button>
                   </article>
                 ))}
@@ -148,6 +219,7 @@ export default function Home() {
             <li>Legal name: AWGenesis LLC</li>
             <li>Business address: 48 Columbia Ave Apt 2B, Kearny, NJ 07032 USA</li>
             <li>Email: info@awgenesis.com</li>
+            <li>Phone: +1 (201) 409-2403</li>
             <li>Services: Website and brand setup</li>
           </ul>
         </div>
@@ -171,30 +243,43 @@ export default function Home() {
       <section className="section contact" id="contact">
         <div className="sectionHeading">
           <p className="eyebrow">Contact</p>
-          <h2>Business details.</h2>
-          <p>Verified company information and legal policies.</p>
+          <h2>Get in touch.</h2>
+          <p>Questions before ordering? Reach out and we will respond with service details.</p>
         </div>
-        <div className="contactCard compact">
-          <div className="contactLine">
-            <span className="contactLabel">Legal name</span>
-            <span className="contactValue">AWGenesis LLC</span>
-          </div>
-          <div className="contactLine">
-            <span className="contactLabel">Email</span>
-            <span className="contactValue">info@awgenesis.com</span>
-          </div>
-          <div className="contactLine">
-            <span className="contactLabel">Phone</span>
-            <span className="contactValue">+1 (000) 000-0000</span>
-          </div>
-          <div className="contactLine">
-            <span className="contactLabel">Address</span>
-            <span className="contactValue">48 Columbia Ave Apt 2B, Kearny, NJ 07032 USA</span>
-          </div>
-          <div className="legalLinks">
-            <a href="/terms-of-service">Terms of Service</a>
-            <a href="/privacy-policy">Privacy Policy</a>
-            <a href="/refund-policy">Refund Policy</a>
+
+        <div className="contactWrapper">
+          <form className="contactForm" action="mailto:info@awgenesis.com" method="post" encType="text/plain">
+            <div className="formRow">
+              <input type="text" name="name" placeholder="Your name" required />
+              <input type="email" name="email" placeholder="Your email" required />
+            </div>
+            <input type="text" name="subject" placeholder="Subject" required />
+            <textarea name="message" rows={5} placeholder="How can we help?" required></textarea>
+            <button className="button primary" type="submit">Send message</button>
+          </form>
+
+          <div className="contactCard compact">
+            <div className="contactLine">
+              <span className="contactLabel">Legal name</span>
+              <span className="contactValue">AWGenesis LLC</span>
+            </div>
+            <div className="contactLine">
+              <span className="contactLabel">Email</span>
+              <a className="contactValue" href="mailto:info@awgenesis.com">info@awgenesis.com</a>
+            </div>
+            <div className="contactLine">
+              <span className="contactLabel">Phone</span>
+              <a className="contactValue" href="tel:+12014092403">+1 (201) 409-2403</a>
+            </div>
+            <div className="contactLine">
+              <span className="contactLabel">Address</span>
+              <span className="contactValue">48 Columbia Ave Apt 2B, Kearny, NJ 07032 USA</span>
+            </div>
+            <div className="legalLinks">
+              <a href="/terms-of-service">Terms of Service</a>
+              <a href="/privacy-policy">Privacy Policy</a>
+              <a href="/refund-policy">Refund Policy</a>
+            </div>
           </div>
         </div>
       </section>
