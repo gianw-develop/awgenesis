@@ -180,10 +180,35 @@ a { color: inherit; text-decoration: none; }
 .footer p { margin: 0 0 8px; }
 .footerLegal a { color: var(--accent); }
 
-.legalPage h2 { font-size: 20px; margin-top: 32px; margin-bottom: 12px; }
-.legalPage ul { color: var(--muted); margin-bottom: 16px; padding-left: 20px; }
-.legalPage li { margin-bottom: 8px; }
-.legalPage a { color: var(--accent); }
+.legalPage {
+  width: min(760px, calc(100% - 48px));
+  margin: 60px auto 100px;
+  background: #ffffff;
+  color: #11131a;
+  border-radius: 24px;
+  padding: 48px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+}
+.legalPage h1 { font-size: 36px; margin-bottom: 8px; color: #0a1a5c; }
+.legalPage > p:first-of-type { color: #5f6470; margin-bottom: 32px; }
+.legalPage h2 { font-size: 20px; margin-top: 32px; margin-bottom: 10px; color: #0a1a5c; }
+.legalPage p { color: #5f6470; margin-bottom: 14px; line-height: 1.7; }
+.legalPage ul { color: #5f6470; margin-bottom: 16px; padding-left: 22px; }
+.legalPage li { margin-bottom: 8px; line-height: 1.6; }
+.legalPage a { color: #2563eb; font-weight: 500; }
+.legalPage a:hover { text-decoration: underline; }
+
+.legalNav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 48px;
+}
+.legalNav .brandLogo img { height: 38px; }
+.legalNavLinks { display: flex; gap: 20px; font-size: 14px; color: var(--muted); }
+.legalNavLinks a:hover { color: var(--text); }
 
 .serviceType {
   display: inline-block;
