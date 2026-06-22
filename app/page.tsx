@@ -2,72 +2,92 @@ const services = [
   {
     name: "Favicon Setup",
     price: "$10",
+    amount: 10,
     category: "Brand Assets",
     type: "Digital file",
-    description: "A clean favicon delivered as PNG/ICO for your website and browser tabs."
+    description: "A clean favicon delivered as PNG/ICO for your website and browser tabs.",
+    url: "https://buy.stripe.com/cNi6oI5AW77qeLC2zabII00"
   },
   {
     name: "Email Signature Setup",
     price: "$12",
+    amount: 12,
     category: "Brand Assets",
     type: "1-on-1 + digital file",
-    description: "A polished HTML email signature configured and tested for your business email."
+    description: "A polished HTML email signature configured and tested for your business email.",
+    url: "https://buy.stripe.com/eVq9AUbZkezS9riddObII01"
   },
   {
     name: "Brand Color Palette",
     price: "$15",
+    amount: 15,
     category: "Brand Assets",
     type: "Digital file",
-    description: "A simple color direction with hex codes and usage guide for your brand."
+    description: "A simple color direction with hex codes and usage guide for your brand.",
+    url: "https://buy.stripe.com/bJe3cw6F063m8neflWbII02"
   },
   {
     name: "Business Card Design",
     price: "$15",
+    amount: 15,
     category: "Brand Assets",
     type: "Digital file",
-    description: "A minimal, professional business card layout delivered as a print-ready file."
+    description: "A minimal, professional business card layout delivered as a print-ready file.",
+    url: "https://buy.stripe.com/cNi4gAd3o77qgTKgq0bII03"
   },
   {
     name: "Contact Form Setup",
     price: "$35",
+    amount: 35,
     category: "Website Setup",
     type: "1-on-1 service",
-    description: "A working contact form installed and configured on your website."
+    description: "A working contact form installed and configured on your website.",
+    url: "https://buy.stripe.com/fZu6oI7J4dvOavm3DebII04"
   },
   {
     name: "Policy Page Setup",
     price: "$39",
+    amount: 39,
     category: "Website Setup",
     type: "1-on-1 service",
-    description: "Terms, privacy, and refund page formatting and publishing support for your site."
+    description: "Terms, privacy, and refund page formatting and publishing support for your site.",
+    url: "https://buy.stripe.com/eVqeVebZk77qbzq2zabII05"
   },
   {
     name: "Homepage Copy Cleanup",
     price: "$49",
+    amount: 49,
     category: "Website Setup",
     type: "1-on-1 service",
-    description: "Rewrite and polish your homepage copy for clarity and conversion."
+    description: "Rewrite and polish your homepage copy for clarity and conversion.",
+    url: "https://buy.stripe.com/bJe7sM8N8fDW46YehSbII06"
   },
   {
     name: "Simple Landing Page",
     price: "$79",
+    amount: 79,
     category: "Website Setup",
     type: "1-on-1 service",
-    description: "A focused landing page for one service, offer, or campaign."
+    description: "A focused landing page for one service, offer, or campaign.",
+    url: "https://buy.stripe.com/4gMfZi7J4ezSavmgq0bII07"
   },
   {
     name: "Brand Kit Mini",
     price: "$99",
+    amount: 99,
     category: "Brand Kit",
     type: "Digital download",
-    description: "Colors, typography direction, and visual basics in a downloadable brand guide."
+    description: "Colors, typography direction, and visual basics in a downloadable brand guide.",
+    url: "https://buy.stripe.com/6oU28sbZk2RafPG1v6bII08"
   },
   {
     name: "Starter Website",
     price: "$149",
+    amount: 149,
     category: "Website Setup",
     type: "1-on-1 service",
-    description: "A clean one-page website built for a small business."
+    description: "A clean one-page website built for a small business.",
+    url: "https://buy.stripe.com/7sYeVed3odvO32U7TubII09"
   }
 ];
 
@@ -179,9 +199,14 @@ export default function Home() {
                         I agree to the Terms of Service, Privacy Policy, and Refund Policy.
                       </label>
                     </div>
-                    <button className="button primary full" type="button">
+                    <a
+                      className="button primary full"
+                      href={service.url || "#contact"}
+                      target={service.url ? "_blank" : undefined}
+                      rel={service.url ? "noopener noreferrer" : undefined}
+                    >
                       Order now — {service.price}
-                    </button>
+                    </a>
                   </article>
                 ))}
             </div>

@@ -6,3 +6,4 @@ dist/
 .env
 .vercel
 serve.py
+stripe-automation/
