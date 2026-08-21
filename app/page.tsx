@@ -1,3 +1,5 @@
+const PAYMENT_LINK = "https://buy.stripe.com/dRm7sM1kG4Zi8ne3DebII0k";
+
 const services = [
   {
     name: "Favicon Setup",
@@ -5,8 +7,7 @@ const services = [
     amount: 10,
     category: "Brand Assets",
     type: "Digital file",
-    description: "A clean favicon delivered as PNG/ICO for your website and browser tabs.",
-    url: "https://buy.stripe.com/cNi6oI5AW77qeLC2zabII00"
+    description: "A clean favicon delivered as PNG/ICO for your website and browser tabs."
   },
   {
     name: "Email Signature Setup",
@@ -14,8 +15,7 @@ const services = [
     amount: 12,
     category: "Brand Assets",
     type: "1-on-1 + digital file",
-    description: "A polished HTML email signature configured and tested for your business email.",
-    url: "https://buy.stripe.com/eVq9AUbZkezS9riddObII01"
+    description: "A polished HTML email signature configured and tested for your business email."
   },
   {
     name: "Brand Color Palette",
@@ -23,8 +23,7 @@ const services = [
     amount: 15,
     category: "Brand Assets",
     type: "Digital file",
-    description: "A simple color direction with hex codes and usage guide for your brand.",
-    url: "https://buy.stripe.com/bJe3cw6F063m8neflWbII02"
+    description: "A simple color direction with hex codes and usage guide for your brand."
   },
   {
     name: "Business Card Design",
@@ -32,8 +31,7 @@ const services = [
     amount: 15,
     category: "Brand Assets",
     type: "Digital file",
-    description: "A minimal, professional business card layout delivered as a print-ready file.",
-    url: "https://buy.stripe.com/cNi4gAd3o77qgTKgq0bII03"
+    description: "A minimal, professional business card layout delivered as a print-ready file."
   },
   {
     name: "Contact Form Setup",
@@ -41,8 +39,7 @@ const services = [
     amount: 35,
     category: "Website Setup",
     type: "1-on-1 service",
-    description: "A working contact form installed and configured on your website.",
-    url: "https://buy.stripe.com/fZu6oI7J4dvOavm3DebII04"
+    description: "A working contact form installed and configured on your website."
   },
   {
     name: "Policy Page Setup",
@@ -50,8 +47,7 @@ const services = [
     amount: 39,
     category: "Website Setup",
     type: "1-on-1 service",
-    description: "Terms, privacy, and refund page formatting and publishing support for your site.",
-    url: "https://buy.stripe.com/eVqeVebZk77qbzq2zabII05"
+    description: "Terms, privacy, and refund page formatting and publishing support for your site."
   },
   {
     name: "Homepage Copy Cleanup",
@@ -59,8 +55,7 @@ const services = [
     amount: 49,
     category: "Website Setup",
     type: "1-on-1 service",
-    description: "Rewrite and polish your homepage copy for clarity and conversion.",
-    url: "https://buy.stripe.com/bJe7sM8N8fDW46YehSbII06"
+    description: "Rewrite and polish your homepage copy for clarity and conversion."
   },
   {
     name: "Simple Landing Page",
@@ -68,8 +63,7 @@ const services = [
     amount: 79,
     category: "Website Setup",
     type: "1-on-1 service",
-    description: "A focused landing page for one service, offer, or campaign.",
-    url: "https://buy.stripe.com/4gMfZi7J4ezSavmgq0bII07"
+    description: "A focused landing page for one service, offer, or campaign."
   },
   {
     name: "Brand Kit Mini",
@@ -77,8 +71,7 @@ const services = [
     amount: 99,
     category: "Brand Kit",
     type: "Digital download",
-    description: "Colors, typography direction, and visual basics in a downloadable brand guide.",
-    url: "https://buy.stripe.com/6oU28sbZk2RafPG1v6bII08"
+    description: "Colors, typography direction, and visual basics in a downloadable brand guide."
   },
   {
     name: "Starter Website",
@@ -86,8 +79,7 @@ const services = [
     amount: 149,
     category: "Website Setup",
     type: "1-on-1 service",
-    description: "A clean one-page website built for a small business.",
-    url: "https://buy.stripe.com/7sYeVed3odvO32U7TubII09"
+    description: "A clean one-page website built for a small business."
   }
 ];
 
@@ -97,14 +89,14 @@ const trustItems = [
   "Clear pricing before purchase",
   "Business information displayed",
   "SSL encrypted site",
-  "Fixed-scope deliverables",
+  "Clearly scoped deliverables",
   "Refund policy available",
-  "Secure card checkout"
+  "Secure Cash App checkout"
 ];
 
 const steps = [
-  "Choose a fixed-price service.",
-  "Complete checkout and agree to terms.",
+  "Review the service options and pricing in USD.",
+  "Open the official Stripe link and enter the agreed whole-dollar amount.",
   "Share your business details.",
   "We deliver your order on time."
 ];
@@ -112,7 +104,7 @@ const steps = [
 const faqs = [
   {
     q: "What does AWGenesis do?",
-    a: "We provide fixed-price website and brand setup services for small businesses, including landing pages, brand assets, contact forms, and policy pages."
+    a: "We provide clearly scoped website and brand setup services for small businesses, including landing pages, brand assets, contact forms, and policy pages."
   },
   {
     q: "What types of products do you offer?",
@@ -123,12 +115,12 @@ const faqs = [
     a: "Most small digital deliverables are completed within 3–7 business days. 1-on-1 services depend on how quickly you provide your business details."
   },
   {
-    q: "Do you offer custom quotes?",
-    a: "No. Every service has a fixed price and a clear scope."
+    q: "What amounts can I pay?",
+    a: "The official Stripe payment link accepts whole-dollar amounts from $6 to $200 USD. Confirm the appropriate service amount with AWGenesis before paying."
   },
   {
     q: "Is checkout secure?",
-    a: "Yes. Payments are processed through a secure card checkout provider."
+    a: "Yes. Payments are completed on an official Stripe-hosted checkout using Cash App Pay."
   },
   {
     q: "What happens after I purchase?",
@@ -173,8 +165,8 @@ export default function Home() {
       <section className="section" id="services">
         <div className="sectionHeading">
           <p className="eyebrow">Services</p>
-          <h2>Fixed-price website and brand services.</h2>
-          <p>Choose a focused service with clear scope and no surprises at checkout.</p>
+          <h2>Website and brand services with pricing in USD.</h2>
+          <p>Review the service options below, then complete the agreed whole-dollar amount through our official Stripe link.</p>
         </div>
 
         {categories.map((category) => (
@@ -201,11 +193,11 @@ export default function Home() {
                     </div>
                     <a
                       className="button primary full"
-                      href={service.url || "#contact"}
-                      target={service.url ? "_blank" : undefined}
-                      rel={service.url ? "noopener noreferrer" : undefined}
+                      href={PAYMENT_LINK}
+                      target="_blank"
+                      rel="noopener noreferrer"
                     >
-                      Order now — {service.price}
+                      Pay securely with Stripe
                     </a>
                   </article>
                 ))}
