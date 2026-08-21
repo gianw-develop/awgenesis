@@ -8,6 +8,9 @@ test("permanent Payment Link provisioning enforces the approved contract", () =>
   assert.match(source, /custom_unit_amount:\s*\{ enabled: true, minimum: 600, maximum: 20000 \}/);
   assert.match(source, /payment_method_types:\s*\["cashapp"\]/);
   assert.match(source, /customer_creation:\s*"always"/);
+  assert.match(source, /key:\s*"customer_name"/);
+  assert.match(source, /custom:\s*"Full name"/);
+  assert.match(source, /optional:\s*false/);
   assert.match(source, /invoice_creation:\s*\{ enabled: false \}/);
   assert.match(source, /system_model:\s*"payment-link-postpay-v1"/);
   assert.match(source, /PAYMENT_LINK_COUNT/);

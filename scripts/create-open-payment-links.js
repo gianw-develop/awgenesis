@@ -27,6 +27,13 @@ async function createLink(index) {
   return stripe.paymentLinks.create({
     line_items: [{ price: price.id, quantity: 1 }],
     customer_creation: "always",
+    custom_fields: [{
+      key: "customer_name",
+      label: { type: "custom", custom: "Full name" },
+      type: "text",
+      optional: false,
+      text: { minimum_length: 2, maximum_length: 80 },
+    }],
     managed_payments: { enabled: false },
     payment_method_types: ["cashapp"],
     invoice_creation: { enabled: false },
