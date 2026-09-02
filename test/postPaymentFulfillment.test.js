@@ -41,6 +41,9 @@ test("paid approved Payment Link creates itemized invoice and attaches original 
   assert.equal(calls.filter(([type]) => type === "attach").length, 1);
   assert.deepEqual(calls.find(([type]) => type === "attach")[2], { payment_intent: "pi_1" });
   assert.equal(calls.filter(([type]) => type === "item").length, result.selected.items.length);
+  const firstItemPayload = calls.find(([type]) => type === "item")[1];
+  assert.match(firstItemPayload.pricing.price, /^price_/);
+  assert.equal("price" in firstItemPayload, false);
   assert.deepEqual(persisted.map((entry) => entry.status), ["allocating", "delivery_pending"]);
 });
 
