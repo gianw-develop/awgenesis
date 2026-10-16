@@ -2,7 +2,7 @@ const { chooseExactCombination } = require("./preorderAlgorithm");
 const { FIXED_PRODUCTS } = require("./catalog");
 const { upsertPaymentLinkOrder } = require("./supabaseService");
 
-const MIN_AMOUNT_CENTS = 600;
+const MIN_AMOUNT_CENTS = 500;
 const MAX_AMOUNT_CENTS = 20000;
 const SYSTEM_MODEL = "payment-link-postpay-v1";
 
@@ -77,10 +77,15 @@ async function fulfillPaidPaymentLinkSession(session, stripe, options = {}) {
   if (!assertEligiblePaymentLinkSession(session, allowedPaymentLinkIds)) return { ignored: true };
   if (!validatePostPaymentAmount(session.amount_total)) {
     const refund = await refundInvalidAmount(session, stripe);
-    await persist(session, { status: "refunded_invalid_amount", failure_reason: "Amount must be a whole USD value from 6 through 200" });
+    await persist(session, { status: "refunded_invalid_amount", failure_reason: "Amount must be a whole USD value from 5 through 200" });
     return { status: "refunded_invalid_amount", refundId: refund.id };
   }
-  const selected = chooseExactCombination(session.amount_total, options.usedHashes || [], 5, options.products || FIXED_PRODUCTS);
+  // The same genuine basic service has a new $5 tariff. Preserve the
+  // existing catalog for all other totals, including historical $6 payments.
+  const products = options.products || (session.amount_total === 500
+    ? [{ ...FIXED_PRODUCTS[0], price: 5, stripePriceId: "price_1URCaZJNxc7LyQusDxah1tQu" }]
+    : FIXED_PRODUCTS);
+  const selected = chooseExactCombination(session.amount_total, options.usedHashes || [], 5, products);
   if (!selected) throw new Error(`Approved catalog cannot represent ${session.amount_total} cents`);
   await persist(session, { status: "allocating", line_items: selected.items, combination_hash: selected.hash });
   const invoice = await createAndAttachDetailedInvoice({ session, selected, stripe });
